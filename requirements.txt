@@ -1,5 +1,19 @@
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
+# Core ML and Data Science Libraries
+scikit-learn==1.8.0
+pandas==3.0.0
+numpy==2.4.2
+
+# Visualization
+matplotlib==3.10.8
+seaborn==0.13.2
+
+# Model Persistence
+joblib==1.4.2
+
+# Jupyter Notebook (optional, for EDA)
+jupyter==1.1.1
+ipykernel==6.29.5
+
+# Additional utilities
+openpyxl==3.1.5  # For Excel file support
+scipy==1.15.1    # Scientific computing (dependency of scikit-learn)
