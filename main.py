@@ -1,4 +1,4 @@
-from src.data_processing import load_data, clean_and_engineer_features, preprocess_for_model
+from src.data_preprocessing import load_data, clean_and_engineer_features, preprocess_for_model
 from src.model_training import CreditScoringModel
 from sklearn.model_selection import train_test_split
 
