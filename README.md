@@ -27,7 +27,7 @@ credit-scoring-pro-bank/
 │   └── processed/              # Dataset processati
 ├── models/                     # Modelli salvati (.pkl)
 ├── notebooks/
-│   └── exploratory_eda.ipynb   # Analisi esplorativa interattiva
+│   └── eda_model_engineering.ipynb   # Analisi esplorativa interattiva
 ├── src/
 │   ├── __init__.py
 │   ├── data_processing.py      # Pulizia e feature engineering
