@@ -1,36 +1,30 @@
-import pandas as pd
+from src.data_processing import load_data, clean_and_engineer_features, preprocess_for_model
+from src.model_training import CreditScoringModel
 from sklearn.model_selection import train_test_split
-from src.preprocessing import clean_data, feature_engineering, prepare_for_model
-from src.models import train_best_rf, save_model
-from sklearn.metrics import classification_report
 
-def run_pipeline():
-    print("🚀 Avvio pipeline di Credit Scoring...")
-    
-    # 1. Caricamento
-    df = pd.read_csv('./data/raw/credit_scoring.csv')
-    
-    # 2. Preprocessing & Engineering
-    df = clean_data(df)
-    df = feature_engineering(df)
-    df_final = prepare_for_model(df)
-    
-    # 3. Split
-    X = df_final.drop(columns=['ID', 'TARGET'])
-    y = df_final['TARGET']
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
-    
-    # 4. Training
-    model = train_best_rf(X_train, y_train)
-    
-    # 5. Evaluation
-    y_pred = model.predict(X_test)
-    print("\n✅ Report finale del modello selezionato:")
-    print(classification_report(y_test, y_pred))
-    
-    # 6. Export
-    save_model(model)
-    print("\n💾 Modello salvato nella cartella 'models/'")
+def main():
+    # 1. Pipeline Dati
+    df = load_data('data/raw/credit_scoring.csv')
+    df = clean_and_engineer_features(df)
+    df_processed, feature_names = preprocess_for_model(df)
+
+    # 2. Split
+    X = df_processed.drop(columns=['TARGET'])
+    y = df_processed['TARGET']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
+
+    # 3. Training (Usiamo il Random Forest vincitore)
+    learner = CreditScoringModel()
+    learner.train_random_forest(X_train, y_train, n_estimators=200)
+
+    # 4. Valutazione
+    metrics = learner.evaluate(X_test, y_test)
+    print(f"Metriche Finali: {metrics}")
+
+    # 5. Interpretabilità (Bonus)
+    top_features = learner.get_feature_importance(X.columns)
+    print("\nTop 5 Fattori di Rischio:")
+    print(top_features.head(5))
 
 if __name__ == "__main__":
-    run_pipeline()
+    main()
