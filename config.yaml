@@ -1,0 +1,111 @@
+# Configuration for Credit Scoring Model Training
+
+# Data Configuration
+data:
+  raw_path: "data/raw/credit_scoring.csv"
+  processed_path: "data/processed"
+  test_size: 0.2
+  validation_size: 0.1
+  random_state: 42
+
+# Preprocessing Configuration
+preprocessing:
+  missing_values:
+    numeric_strategy: "median"  # median, mean, drop
+    categorical_strategy: "mode"  # mode, unknown, drop
+  scaling:
+    method: "standard"  # standard, minmax, robust
+    enabled: true
+  encoding:
+    method: "onehot"  # onehot, label
+    drop_first: true
+
+# Feature Engineering Configuration
+feature_engineering:
+  enabled: true
+  create_age_features: true
+  create_employment_features: true
+  create_income_features: true
+  create_family_features: true
+  create_asset_features: true
+  create_contact_features: true
+  create_interaction_features: true
+
+# Model Configurations
+models:
+  logistic_regression:
+    enabled: false
+    class_weight: "balanced"
+    solver: "liblinear"
+    max_iter: 1000
+    C: 1.0
+  
+  decision_tree:
+    enabled: false
+    class_weight: "balanced"
+    max_depth: null
+    min_samples_split: 2
+    min_samples_leaf: 1
+  
+  random_forest:
+    enabled: true
+    n_estimators: 200
+    max_depth: null
+    min_samples_split: 2
+    min_samples_leaf: 1
+    class_weight: "balanced"
+    n_jobs: -1
+    oob_score: false
+  
+  bagging:
+    enabled: false
+    base_estimator: "logistic_regression"  # logistic_regression, decision_tree
+    n_estimators: 100
+    max_samples: 0.4
+    max_features: 7
+    n_jobs: -1
+
+# Evaluation Configuration
+evaluation:
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1_score
+    - roc_auc
+  
+  cross_validation:
+    enabled: false
+    n_folds: 5
+    scoring: "f1"
+  
+  threshold_optimization:
+    enabled: true
+    metric: "f1_score"  # f1_score, accuracy, precision
+    thresholds: [0.3, 0.4, 0.5, 0.6, 0.7]
+
+# Business Metrics Configuration
+business_metrics:
+  enabled: true
+  approval_cost: 100.0
+  default_cost: 5000.0
+  rejection_opportunity_cost: 200.0
+  revenue_per_good_customer: 1000.0
+
+# Output Configuration
+output:
+  models_dir: "models"
+  results_dir: "reports/results"
+  figures_dir: "reports/figures"
+  save_predictions: true
+  save_feature_importance: true
+  generate_report: true
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/training.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Reproducibility
+seed: 42
