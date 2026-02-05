@@ -8,7 +8,7 @@ def run_pipeline():
     print("🚀 Avvio pipeline di Credit Scoring...")
     
     # 1. Caricamento
-    df = pd.read_csv('credit_scoring.csv')
+    df = pd.read_csv('./data/raw/credit_scoring.csv')
     
     # 2. Preprocessing & Engineering
     df = clean_data(df)
