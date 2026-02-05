@@ -121,7 +121,7 @@ Questo permette di fornire motivazioni trasparenti ai clienti in caso di rifiuto
 
 Per esplorare i dati interattivamente, apri il notebook Jupyter:
 ```bash
-jupyter notebook notebooks/exploratory_eda.ipynb
+jupyter notebook notebooks/eda_model_engineering.ipynb
 ```
 
 Il notebook include:
@@ -176,18 +176,13 @@ Questo progetto è distribuito sotto licenza MIT. Vedi il file `LICENSE` per mag
 
 **Data Science Team @ Pro National Bank**
 
-- [Il Tuo Nome](https://github.com/tuousername)
+- [Matteo Peroni](https://github.com/perofficial)
 
 ## 📞 Contatti
 
 Per domande o supporto:
-- 📧 Email: datascience@probank.com
+- 📧 Email: matteoperoni.work@pgmail.com
 - 🐛 Issues: [GitHub Issues](https://github.com/tuousername/credit-scoring-pro-bank/issues)
-
-## 🙏 Ringraziamenti
-
-- Dataset fornito da [fonte del dataset]
-- Ispirato dalle best practices di [riferimenti]
 
 ---
 
