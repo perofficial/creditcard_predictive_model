@@ -20,7 +20,7 @@ Il progetto analizza i dati storici dei clienti per prevedere la probabilità di
 
 ## 📂 Struttura del Progetto
 ```
-credit-scoring-pro-bank/
+creditcard_predictive_model/
 ├── data/
 │   ├── raw/                    # Dataset originali (non versionati)
 │   │   └── credit_scoring.csv
