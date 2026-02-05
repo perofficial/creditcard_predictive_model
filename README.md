@@ -43,8 +43,8 @@ credit-scoring-pro-bank/
 
 ### 1. Clona il Repository
 ```bash
-git clone https://github.com/tuousername/credit-scoring-pro-bank.git
-cd credit-scoring-pro-bank
+git clone https://github.com/perofficial/creditcard_predictive_model.git
+cd creditcard_predictive_model
 ```
 
 ### 2. Setup Ambiente
@@ -182,7 +182,7 @@ Questo progetto è distribuito sotto licenza MIT. Vedi il file `LICENSE` per mag
 
 Per domande o supporto:
 - 📧 Email: matteoperoni.work@pgmail.com
-- 🐛 Issues: [GitHub Issues](https://github.com/tuousername/credit-scoring-pro-bank/issues)
+- 🐛 Issues: [GitHub Issues](https://github.com/perofficial/creditcard_predictive_model/issues)
 
 ---
 
