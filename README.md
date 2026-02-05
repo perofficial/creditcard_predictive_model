@@ -174,7 +174,7 @@ Questo progetto è distribuito sotto licenza MIT. Vedi il file `LICENSE` per mag
 
 ## 👥 Autori
 
-**Data Science Team @ Pro National Bank**
+**Data Scientist**
 
 - [Matteo Peroni](https://github.com/perofficial)
 
